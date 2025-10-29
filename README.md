@@ -71,6 +71,7 @@ tree_git
 17 directories, 6 files
 ```
 #Файл preinst
+```
 #!/bin/sh
 set -e
 
@@ -144,6 +145,7 @@ if test "$1" = upgrade &&
 		mv -f "$f.tmp" "$f"
 	done
 fi
+```
 #Файл postinst
 #!/bin/sh
 set -e
