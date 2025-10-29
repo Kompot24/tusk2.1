@@ -42,6 +42,7 @@
  взаимодействия с другими системами контроля версий и веб-интерфейс,  
  доступны в отдельных пакетах git*.  
   
+```
 tree_git
 ├── etc
 │   └── bash_completion.d
@@ -68,6 +69,7 @@ tree_git
         └── git
 
 17 directories, 6 files
+```
 #Файл preinst
 #!/bin/sh
 set -e
