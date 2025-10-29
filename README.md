@@ -148,6 +148,7 @@ if test "$1" = upgrade &&
 fi
 ```
 # Файл postinst
+```
 #!/bin/sh
 set -e
 
@@ -169,7 +170,9 @@ if dpkg --compare-versions "$2" lt '1:1.7.4.1-2~' &&
    test -r "$removed_conffile".dpkg-bak; then
   mv "$removed_conffile".dpkg-bak "$removed_conffile"
 fi
+```
 # Файл prerm
+```
 #!/bin/sh
 set -e
 # Automatically added by dh_installdeb/13.3.4
@@ -178,7 +181,9 @@ dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.
 dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
 dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
+```
 # Файл postrm
+```
 #!/bin/sh
 set -e
 # Automatically added by dh_installdeb/13.3.4
@@ -187,3 +192,4 @@ dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.
 dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
 dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
+```
