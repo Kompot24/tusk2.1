@@ -42,6 +42,7 @@
  взаимодействия с другими системами контроля версий и веб-интерфейс,  
  доступны в отдельных пакетах git*.  
   
+# Структура пакета
 ```
 tree_git
 ├── etc
@@ -70,7 +71,7 @@ tree_git
 
 17 directories, 6 files
 ```
-#Файл preinst
+# Файл preinst
 ```
 #!/bin/sh
 set -e
@@ -146,7 +147,7 @@ if test "$1" = upgrade &&
 	done
 fi
 ```
-#Файл postinst
+# Файл postinst
 #!/bin/sh
 set -e
 
@@ -168,7 +169,7 @@ if dpkg --compare-versions "$2" lt '1:1.7.4.1-2~' &&
    test -r "$removed_conffile".dpkg-bak; then
   mv "$removed_conffile".dpkg-bak "$removed_conffile"
 fi
-#Файл prerm
+# Файл prerm
 #!/bin/sh
 set -e
 # Automatically added by dh_installdeb/13.3.4
@@ -177,7 +178,12 @@ dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.
 dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
 dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
-
-  echo "#Файл postrm"
-  cat "postrm"
-  echo 
+# Файл postrm
+#!/bin/sh
+set -e
+# Automatically added by dh_installdeb/13.3.4
+dpkg-maintscript-helper rm_conffile /etc/bash_completion.d/git 1:1.8.0-1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.4.1-2\~ -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
+# End automatically added section
