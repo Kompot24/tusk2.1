@@ -1,166 +1,196 @@
 ```
-              
-#    #  ####  
-##  ## #    # 
-# ## # #      
-#    # #      
-#    # #    # 
-#    #  ####  
-              
+               
+ ####  # ##### 
+#    # #   #   
+#      #   #   
+#  ### #   #   
+#    # #   #   
+ ####  #   #   
+               
 ```
-**Package**: mc  
-**Version**: 3:4.8.26-1.1  
+**Package**: git  
+**Version**: 1:2.30.2-1+deb11u5  
 **Priority**: optional  
-**Section**: utils  
-**Maintainer**: Dmitry Smirnov <onlyjob@debian.org>  
-**Installed-Size**: 1 528 kB  
-**Provides**: mcedit  
-**Depends**: libc6 (>= 2.15), libext2fs2 (>= 1.37), libglib2.0-0 (>= 2.59.2), libgpm2 (>= 1.20.7), libslang2 (>= 2.2.4), libssh2-1 (>= 1.2.8), mc-data (= 3:4.8.26-1.1)  
-**Recommends**: mime-support, perl, unzip, sensible-utils  
-**Suggests**: arj, bzip2, catdvi | texlive-binaries, dbview, djvulibre-bin, epub-utils, file, genisoimage, gv, imagemagick, libaspell-dev, links | w3m | lynx, odt2txt, poppler-utils, python, python-boto, python-tz, unar, wimtools, xpdf | pdf-viewer, zip  
-**Homepage**: https://www.midnight-commander.org  
-**Tag**: admin::filesystem, devel::lang:perl, devel::library, implemented-in::c,  
-** implemented-in**::perl, interface::commandline, interface::text-mode,  
-** role**::devel-lib, role::program, scope::application, suite::gnu,  
-** uitoolkit**::ncurses, use::browsing, use::editing, use::organizing,  
-** works-with**::archive, works-with::file  
-**Download-Size**: 534 kB  
+**Section**: vcs  
+**Maintainer**: Jonathan Nieder <jrnieder@gmail.com>  
+**Installed-Size**: 36,1 MB  
+**Provides**: git-completion, git-core  
+**Depends**: libc6 (>= 2.28), libcurl3-gnutls (>= 7.56.1), libexpat1 (>= 2.0.1), libpcre2-8-0 (>= 10.22), zlib1g (>= 1:1.2.0), perl, liberror-perl, git-man (>> 1:2.30.2), git-man (<< 1:2.30.2-.)  
+**Recommends**: ca-certificates, patch, less, ssh-client  
+**Suggests**: gettext-base, git-daemon-run | git-daemon-sysvinit, git-doc, git-el, git-email, git-gui, gitk, gitweb, git-cvs, git-mediawiki, git-svn  
+**Breaks**: bash-completion (<< 1:1.90-1), cogito (<= 0.18.2+), dgit (<< 5.1~), git-buildpackage (<< 0.6.5), git-core (<< 1:1.7.0.4-1.), gitosis (<< 0.2+20090917-7), gitpkg (<< 0.15), gitweb (<< 1:1.7.4~rc1), guilt (<< 0.33), openssh-client (<< 1:6.8), stgit (<< 0.15), stgit-contrib (<< 0.15)  
+**Replaces**: git-core (<< 1:1.7.0.4-1.), gitweb (<< 1:1.7.4~rc1)  
+**Homepage**: https://git-scm.com/  
+**Download-Size**: 5 568 kB  
 **APT-Manual-Installed**: yes  
-**APT-Sources**: http://deb.debian.org/debian bullseye/main amd64 Packages  
-**Description**: Midnight Commander - многофункциональный диспетчер файлов  
- GNU Midnight Commander – полноэкранный текстовый файловый менеджер.  
- В нём используется двухпанельный интерфейс и встроенная командная оболочка.  
- Также имеется встроенный редактор с подсветкой синтаксиса и просмотрщик,  
- поддерживающий двоичные файлы. Программа поддерживает виртуальную файловую  
- систему (VFS), что позволяет работать с файлами на удалённых машинах  
- (например, на серверах FTP, SSH) и с файлами внутри архивов,  
- как с обычными файлами.  
+**APT-Sources**: http://deb.debian.org/debian-security bullseye-security/updates/main amd64 Packages  
+**Description**: масштабируемая распределённая система контроля версий  
+ Git — это популярная система контроля версий, предназначенная для быстрой и  
+ эффективной работы над очень большими проектами; используется многими  
+ проектами с открытым исходным кодом, самым заметным из которых является  
+ ядро Linux.  
+ .  
+** Git является распределённой системой контроля версий**: для работы с ней не  
+ нужен центральный сервер. Репозитории хранятся локально полностью, со всей  
+ историей изменений, а соединение с центральным сервером (если такой  
+ имеется) нужно только для публикации своих изменений и загрузки изменений  
+ опубликованных другими (т.е. для синхронизации удалённого и локального  
+ репозиториев).  
+ .  
+ Этот пакет устанавливает основные компоненты git. Дополнительные  
+ компоненты, такие как графический интерфейс пользователя и утилита для  
+ наглядного представления дерева версий, утилиты для организации  
+ взаимодействия с другими системами контроля версий и веб-интерфейс,  
+ доступны в отдельных пакетах git*.  
   
 # Структура пакета
 ```
-tree_mc
+tree_git
 ├── etc
-│   └── mc
-│       ├── edit.indent.rc
-│       ├── filehighlight.ini
-│       ├── mc.default.keymap
-│       ├── mcedit.menu
-│       ├── mc.emacs.keymap
-│       ├── mc.ext
-│       ├── mc.keymap -> mc.default.keymap
-│       ├── mc.menu
-│       └── sfs.ini
-└── usr
-    ├── bin
-    │   ├── mc
-    │   ├── mcdiff -> mc
-    │   ├── mcedit -> mc
-    │   └── mcview -> mc
-    ├── lib
-    │   └── mc
-    └── share
-        ├── applications
-        ├── doc
-        ├── lintian
-        ├── mc
-        └── pixmaps
+│   └── bash_completion.d
+│       └── git-prompt
+├── usr
+│   ├── bin
+│   │   ├── git
+│   │   ├── git-receive-pack -> git
+│   │   ├── git-shell
+│   │   ├── git-upload-archive -> git
+│   │   └── git-upload-pack -> git
+│   ├── lib
+│   │   └── git-core
+│   └── share
+│       ├── bash-completion
+│       ├── doc
+│       ├── git-core
+│       ├── gitweb
+│       ├── lintian
+│       ├── locale
+│       └── perl5
+└── var
+    └── lib
+        └── git
 
-12 directories, 13 files
+17 directories, 6 files
 ```
 # Файл preinst
 ```
 #!/bin/sh
 set -e
+
 # Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper rm_conffile /etc/mc/edit.spell.rc 3:4.8.5-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.charsets 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.lib 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/Syntax 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.menu.sr 3:4.8.17-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/cedit.menu /etc/mc/mcedit.menu 3:4.8-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.emacs /etc/mc/mc.emacs.keymap 3:4.8.8-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.default /etc/mc/mc.default.keymap 3:4.8.8-0 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bash_completion.d/git 1:1.8.0-1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.4.1-2\~ -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
+
+
+# /var/cache/git/ -> /var/lib/git/ transition
+if test "$1" = upgrade &&
+   dpkg --compare-versions "$2" lt-nl '1:1.8.4~rc0-1'; then
+	mkdir -m 755 -p /var/lib/git
+	(
+		cd /var/lib/git
+		for target in ../../cache/git/*; do
+			if ! test -L "$target" && ! test -e "$target"; then
+				continue
+			fi
+
+			link=${target#../../cache/git/}
+			if ! test -L "$link" && ! test -e "$link"; then
+				ln -s "$target" "$link"
+			fi
+		done
+	)
+fi
+
+# A previous version of the /var/lib/git/ transition code
+# left behind a symlink '/var/lib/git/*' -> '../../cache/git/*'.
+if test "$1" = upgrade &&
+   dpkg --compare-versions "$2" eq '1:1.8.4~rc0-1' &&
+   test -L '/var/lib/git/*'; then
+	target=$(readlink '/var/lib/git/*')
+	if test "$target" = '../../cache/git/*'; then
+		rm -f '/var/lib/git/*'
+	fi
+fi
+
+# Git versions before 1.7.7-2 kept about 100 hard links to
+# /usr/lib/git-core/git at /usr/lib/git-core/git-* to avoid
+# wasting time resolving a symlink when old scripts call "git
+# foo" as git-foo.  Btrfs doesn't like to have more than 130 or
+# so links to a single inode in a given directory.  dpkg versions
+# 1.16.1 and later temporarily double the number of hard links to
+# an inode when upgrading a package.
+#
+# Replace the hard links with symlinks _before_ upgrading to
+# avoid trouble.
+#
+# For added fun, coreutils mv will not replace a file by a
+# symlink to the same inode (bug #654666).  We give
+# /usr/lib/git-core/git its own inode to work around that.
+
+if test "$1" = upgrade &&
+   dpkg --compare-versions "$2" lt-nl '1:1.7.7-2'; then
+	refinode=$(stat -c%i /usr/lib/git-core/git-add)
+
+	rm -f /usr/lib/git-core/git.tmp
+	cp -p /usr/lib/git-core/git /usr/lib/git-core/git.tmp
+	mv -f /usr/lib/git-core/git.tmp /usr/lib/git-core/git
+	for f in /usr/lib/git-core/*; do
+		test "$f" != /usr/lib/git-core/git &&
+		test "$f" != /usr/lib/git-core/git-add || continue
+		rm -f "$f.tmp"
+		inode=$(stat -c%i "$f")
+		test "$inode" = "$refinode" || continue
+		ln -s git "$f.tmp"
+		mv -f "$f.tmp" "$f"
+	done
+fi
 ```
 # Файл postinst
 ```
 #!/bin/sh
 set -e
 
-case "$1" in
-	configure|abort-upgrade)
-		update-alternatives --install /usr/bin/view view /usr/bin/mcview 25 \
-			--slave /usr/share/man/man1/view.1.gz view.1.gz /usr/share/man/man1/mcview.1.gz
-		update-alternatives --install /usr/bin/editor editor /usr/bin/mcedit 25 \
-			--slave /usr/share/man/man1/editor.1.gz editor.1.gz /usr/share/man/man1/mcedit.1.gz
-	;;
-esac
-
 # Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper rm_conffile /etc/mc/edit.spell.rc 3:4.8.5-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.charsets 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.lib 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/Syntax 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.menu.sr 3:4.8.17-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/cedit.menu /etc/mc/mcedit.menu 3:4.8-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.emacs /etc/mc/mc.emacs.keymap 3:4.8.8-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.default /etc/mc/mc.default.keymap 3:4.8.8-0 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bash_completion.d/git 1:1.8.0-1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.4.1-2\~ -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
 
+
+test "$1" = configure || exit 0
+
+removed_conffile=/etc/emacs/site-start.d/50git-core.el
+
+# Carry over modifications so git-el can use them.
+if dpkg --compare-versions "$2" lt '1:1.7.4.1-2~' &&
+   ! test -e "$removed_conffile" &&
+   test -r "$removed_conffile".dpkg-bak; then
+  mv "$removed_conffile".dpkg-bak "$removed_conffile"
+fi
 ```
 # Файл prerm
 ```
 #!/bin/sh
 set -e
-
-case "$1" in
-	remove)
-		update-alternatives --remove editor /usr/bin/mcedit
-		update-alternatives --remove view /usr/bin/mcview
-	;;
-esac
-
 # Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper rm_conffile /etc/mc/edit.spell.rc 3:4.8.5-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.charsets 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.lib 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/Syntax 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.menu.sr 3:4.8.17-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/cedit.menu /etc/mc/mcedit.menu 3:4.8-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.emacs /etc/mc/mc.emacs.keymap 3:4.8.8-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.default /etc/mc/mc.default.keymap 3:4.8.8-0 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bash_completion.d/git 1:1.8.0-1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.4.1-2\~ -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
-
 ```
 # Файл postrm
 ```
 #!/bin/sh
 set -e
-
-case "$1" in
-	purge)
-
-		rm -f \
-			/etc/mc/cedit.menu \
-			/etc/mc/*.ini \
-			/etc/mc/mc.* \
-			/etc/mc/*.rc \
-			/etc/mc/Syntax
-
-		rmdir /etc/mc 2>/dev/null || true
-
-	;;
-esac
-
 # Automatically added by dh_installdeb/13.3.4
-dpkg-maintscript-helper rm_conffile /etc/mc/edit.spell.rc 3:4.8.5-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.charsets 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.lib 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/Syntax 3:4.8-1 -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/mc/mc.menu.sr 3:4.8.17-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/cedit.menu /etc/mc/mcedit.menu 3:4.8-1 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.emacs /etc/mc/mc.emacs.keymap 3:4.8.8-0 -- "$@"
-dpkg-maintscript-helper mv_conffile /etc/mc/mc.keymap.default /etc/mc/mc.default.keymap 3:4.8.8-0 -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/bash_completion.d/git 1:1.8.0-1\~ -- "$@"
+dpkg-maintscript-helper rm_conffile /etc/emacs/site-start.d/50git-core.el 1:1.7.4.1-2\~ -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/hooks ../../../git-core/contrib/hooks 1:1.7.7-1 -- "$@"
+dpkg-maintscript-helper dir_to_symlink /usr/share/doc/git/contrib/emacs ../../../git-core/emacs 1:1.7.4\~rc1-0.1 -- "$@"
 # End automatically added section
-
 ```
