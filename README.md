@@ -22,6 +22,7 @@
 **Replaces**: git-core (<< 1:1.7.0.4-1.), gitweb (<< 1:1.7.4~rc1)  
 **Homepage**: https://git-scm.com/  
 **Download-Size**: 5 568 kB  
+**APT-Manual-Installed**: yes  
 **APT-Sources**: http://deb.debian.org/debian-security bullseye-security/updates/main amd64 Packages  
 **Description**: масштабируемая распределённая система контроля версий  
  Git — это популярная система контроля версий, предназначенная для быстрой и  
